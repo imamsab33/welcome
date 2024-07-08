@@ -1,7 +1,7 @@
    Java Interview
 ===============================
 
-1. **Why String is immutable in Java?**
+qqq1. **Why String is immutable in Java?**
 
    String is immutable in Java to enhance security, synchronization, and performance. Once created, its value cannot be changed, ensuring the integrity of data. This immutability allows safe sharing across threads and enables efficient memory management with the string constant pool.
 
