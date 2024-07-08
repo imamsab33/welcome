@@ -1,0 +1,516 @@
+55. How do you create custom exceptions?
+
+Create custom exceptions in Java by extending the Exception class or its subclasses. Provide constructors to initialize the exception with custom messages or causes.
+
+java
+Copy code
+public class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+    public CustomException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+56. When will you get 415 & 504 HTTP response code?
+
+415 Unsupported Media Type: Returned when the server refuses to accept the request because the payload format is in an unsupported format.
+504 Gateway Timeout: Occurs when a server acting as a gateway or proxy cannot get a response in time from the upstream server.
+57. Email field has not null constraint, how to remove not null constraint from not null column?
+
+To remove a NOT NULL constraint from a column in SQL, use an ALTER TABLE statement:
+
+sql
+Copy code
+ALTER TABLE tableName MODIFY email VARCHAR(255);
+58. What is the difference between new ArrayList and Arrays.asList?
+
+new ArrayList<>(): Creates a new, mutable ArrayList instance.
+Arrays.asList(): Returns a fixed-size list backed by the array; modifications to the array reflect in the list and vice versa, but adding or removing elements is not allowed.
+59. Which one is faster, LinkedList or ArrayList?
+
+ArrayList is generally faster for indexed access and iterative traversal due to contiguous memory storage.
+LinkedList is faster for insertions and deletions at the beginning or middle, as it does not require shifting elements.
+60. In which case would you prefer LinkedList and in which case ArrayList?
+
+LinkedList: Prefer for scenarios requiring frequent insertions or deletions, especially at the beginning or middle of the list.
+ArrayList: Prefer for scenarios with frequent access operations or where the list size changes infrequently, providing better performance and memory efficiency.61. Difference between Aggregation and Composition:
+
+Aggregation: A relationship where the child can exist independently of the parent. For example, a university has departments (departments can exist without the university).
+Composition: A relationship where the child cannot exist independently of the parent. For example, a house has rooms (rooms cannot exist without the house).
+62. What is Fault Tolerance:
+Fault tolerance refers to the ability of a system to continue operating properly in the event of a failure of some of its components. It aims to prevent total system failure by using redundant components or mechanisms.
+
+63. JWT Authentication Related Questions:
+JWT (JSON Web Token) is used for securely transmitting information between parties as a JSON object. Key questions include:
+
+How to create and validate a JWT.
+Differences between JWT and OAuth.
+Securing JWTs and preventing misuse.
+64. Heap Memory and JVM:
+Heap memory is the runtime data area from which memory for all class instances and arrays is allocated. In JVM, heap memory is used for dynamic memory allocation for Java objects and JRE classes at runtime.
+
+65. How do you create HTTP POST request in Java:
+You can create an HTTP POST request in Java using the HttpURLConnection class. Example:
+
+java
+Copy code
+URL url = new URL("http://example.com/api");
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+conn.setRequestMethod("POST");
+conn.setDoOutput(true);
+OutputStream os = conn.getOutputStream();
+os.write(input.getBytes());
+os.flush();
+os.close();
+66. What is the use of super keyword:
+The super keyword in Java is used to refer to the immediate parent class object. It is used to call parent class methods, access parent class variables, and invoke the parent class constructor.
+
+67. What is throw, throws and when do we use these?:
+
+throw: Used to explicitly throw an exception.
+throws: Used in method signatures to declare that the method can throw specified exceptions.
+Use throw when you want to manually throw an exception. Use throws to indicate that a method can potentially throw exceptions.
+68. What is synchronization?:
+Synchronization in Java is a mechanism that ensures that two or more concurrent threads do not simultaneously execute certain program segments known as critical sections. It is used to prevent thread interference and consistency problems.
+
+69. What is a TreeSet?:
+TreeSet is a class in Java that implements the Set interface, which uses a tree for storage. Objects are stored in a sorted and ascending order. It does not allow duplicate values.
+
+70. Explain the role of API Gateway in a microservices architecture:
+An API Gateway acts as a reverse proxy to accept all application programming interface (API) calls, aggregate the various services required to fulfill them, and return the appropriate result. It provides a single entry point for clients and handles request routing, composition, and protocol translation.
+
+71. Explain functional interface and what are some of the available interface?:
+A functional interface in Java is an interface that contains exactly one abstract method. They are used to implement lambda expressions and method references. Examples include Runnable, Callable, Comparator, and Function.
+
+72. What are REST API Best practices?:
+
+Use nouns for resource names.
+Use HTTP methods appropriately (GET, POST, PUT, DELETE).
+Use proper status codes.
+Provide filtering, sorting, and pagination.
+Use JSON or XML for responses.
+Document the API.
+73. What is a one-to-one mapping and how to set up it with JPA/Hibernate?:
+One-to-one mapping in JPA/Hibernate is used to define a single-valued association to another entity. It can be set up using the @OneToOne annotation along with @JoinColumn to specify the foreign key.
+
+74. Difference between entity object and value object:
+
+Entity Object: Represents a table in a database, has a distinct identity that persists beyond the duration of a single transaction.
+Value Object: Represents an attribute and does not have an identity. It is immutable and compared based on its properties.
+75. What is the difference between ClassNotFoundException and NoClassDefFoundError:
+
+ClassNotFoundException: Thrown when an application tries to load a class at runtime using Class.forName, ClassLoader.loadClass, or ClassLoader.findSystemClass and the class is not found.
+NoClassDefFoundError: Thrown if the JVM or a class loader tries to load the definition of a class and no definition of the class could be found.
+76. Is finally block always executed:
+Yes, the finally block is always executed after the try and catch blocks, regardless of whether an exception is thrown, except when the JVM exits during try or catch block execution or if the thread executing the try or catch block is interrupted or killed.
+
+77. What is an exception in Java and how you handle exception in Java?:
+An exception in Java is an event that disrupts the normal flow of the program's instructions. Exceptions are handled using try, catch, and finally blocks, and by using throw to manually throw exceptions and throws to declare exceptions.
+
+78. Explain classloader in Java?:
+A classloader in Java is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. It is responsible for loading classes from various sources like the local filesystem, network, or any other source.
+
+79. Can we override static method in Java?:
+No, static methods cannot be overridden because they belong to the class rather than an instance of the class. They can be hidden (not overridden) by another static method in a subclass.
+
+80. What is immutable classes & how we can create a new immutable class?:
+An immutable class is a class whose instances cannot be modified once created. To create an immutable class:
+
+Declare the class as final.
+Make all fields private and final.
+Provide no setters.
+Initialize all fields via constructor.
+Return deep copies of mutable fields in getters.
+81. Difference between comparator and comparable  in java ?
+82. What is hash collision ?
+83. How will you handle Null pointer exception ?
+84. What is transient in serialization ?
+85. Can we serialize static variables ?
+86. What is volatile keyword ?
+87. What are design patterns you have worked on ?
+88. How to create a singleton class ?
+89. What is garbage collection ?
+90. There is a method called GC, what is the purpose ?
+91. How garbage collection works internally in java ?
+92. What is use of actuators ?
+93. Diff between constructor and setter injection ?
+94. How we can read the property from property file ?
+95. What is use of @ Value annotation ?
+96. What is CI and CD, and why it is important ?
+97. Why the main method is static in java ?
+98. Can we override private variable in java ?
+99. What is blank final variable in java, If we declare a final variable but we havenot assigned any value, what happens here ?
+100. How the java objects are stored in memory ? GIVE ME ANSWER FOR EACH QUESTIONS IN 50 WORDS
+ChatGPT
+Sure! Here are the answers to each of your questions in 50 words:
+
+81. Difference between Comparator and Comparable in Java:
+
+Comparable: Used to define the natural ordering of objects; implemented using compareTo method.
+Comparator: Used to define an alternative order for objects; implemented using compare method. It allows sorting of objects that don't implement Comparable.
+82. What is Hash Collision?:
+A hash collision occurs when two different keys produce the same hash code in a hash table. This can lead to potential issues in data retrieval, which is resolved using techniques like chaining or open addressing.
+
+83. How will you handle NullPointerException?:
+To handle NullPointerException, use:
+
+Null checks before accessing objects.
+Optional class in Java 8+.
+Defensive programming techniques, such as assigning default values.
+Using Objects.requireNonNull.
+84. What is Transient in Serialization?:
+The transient keyword in Java marks member variables not to be serialized. During serialization, these variables are ignored and not included in the serialized state of the object.
+
+85. Can we Serialize Static Variables?:
+No, static variables are not serialized because they belong to the class, not the instance. Serialization applies to the state of an object, and static variables are part of the class's state.
+
+86. What is Volatile Keyword?:
+The volatile keyword in Java is used to indicate that a variable's value will be modified by different threads. It ensures visibility and ordering of changes to variables across threads.
+
+87. What are Design Patterns you have worked on?:
+Common design patterns include:
+
+Singleton: Ensures a class has only one instance.
+Factory: Creates objects without specifying the exact class.
+Observer: Notifies observers of changes.
+Decorator: Adds behavior to objects dynamically.
+88. How to Create a Singleton Class?:
+To create a singleton class:
+
+Make the constructor private.
+Create a static method that returns the instance.
+Use a private static variable to hold the instance.
+Example:
+java
+Copy code
+public class Singleton {
+    private static Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+89. What is Garbage Collection?:
+Garbage collection in Java is the process of automatically freeing memory by deleting objects that are no longer reachable in the application. It helps in preventing memory leaks and optimizing memory usage.
+
+90. There is a method called gc(), what is the purpose?:
+The gc() method in Java is a request to the JVM to run the garbage collector. It suggests that the JVM perform garbage collection, though it doesn't guarantee immediate collection.
+
+91. How Garbage Collection Works Internally in Java?:
+Garbage collection in Java works by marking objects that are reachable, then sweeping through memory to collect and reclaim the space occupied by unreachable objects. Algorithms like Mark-and-Sweep, Generational, and G1 are used.
+
+92. What is Use of Actuators?:
+In Spring Boot, Actuators provide endpoints to monitor and manage the application. They offer insights into metrics, health, info, environment, and other runtime details, enhancing observability.
+
+93. Difference between Constructor and Setter Injection?:
+
+Constructor Injection: Dependencies are provided through a constructor. Ensures immutability and mandatory dependency.
+Setter Injection: Dependencies are provided through setter methods. Allows optional dependencies and supports dynamic changes.
+94. How we can Read the Property from Property File?:
+To read properties from a property file in Java:
+
+java
+Copy code
+Properties prop = new Properties();
+InputStream input = new FileInputStream("config.properties");
+prop.load(input);
+String value = prop.getProperty("key");
+95. What is Use of @Value Annotation?:
+The @Value annotation in Spring is used to inject property values into variables from properties files or environment variables. It simplifies externalized configuration.
+
+96. What is CI and CD, and why is it Important?:
+
+CI (Continuous Integration): Frequent merging of code changes to a central repository with automated testing.
+CD (Continuous Deployment): Automatic deployment of validated code to production. They improve software quality, speed, and reliability.
+97. Why the Main Method is Static in Java?:
+The main method is static because it needs to be accessible before any instances of the class are created. It serves as the entry point for the JVM to start program execution.
+
+98. Can we Override Private Variable in Java?:
+No, private methods cannot be overridden because they are not accessible outside their own class. They are only accessible within the class they are declared in.
+
+99. What is Blank Final Variable in Java, If we Declare a Final Variable but Have Not Assigned Any Value, What Happens Here?:
+A blank final variable is a final variable that is not initialized at the time of declaration. It must be initialized in the constructor, or a compile-time error occurs.
+
+100. How the Java Objects are Stored in Memory?:
+Java objects are stored in the heap memory. The JVM allocates memory for new objects and handles garbage collection. References to objects are stored in stack memory, pointing to the object's location in the heap.
+
+Sure! Here are the answers to each of your questions in 50 words:
+
+101. List of Mobile Numbers, Find Customers Having Number +91:
+To find customers with mobile numbers starting with +91, iterate through the list and check each number:
+
+java
+Copy code
+List<String> customersWith91 = numbers.stream()
+    .filter(number -> number.startsWith("+91"))
+    .collect(Collectors.toList());
+102. What is Predicate in Terms of Functional Interface?:
+A Predicate is a functional interface that represents a boolean-valued function of one argument. It is used to evaluate a condition on a given input and is commonly used for filtering data in streams.
+
+103. Explain Builder Design Pattern:
+The Builder pattern is used to construct complex objects step by step. It separates the construction of an object from its representation, allowing the same construction process to create different representations. It improves readability and flexibility in object creation.
+
+104. How Security is Managed by Your Application?:
+Security is managed using various techniques such as authentication (JWT, OAuth), authorization (role-based access control), data encryption (HTTPS, TLS), input validation, and security frameworks like Spring Security to protect against threats and vulnerabilities.
+
+105. Do You Know What is JWT2.0 and JWT Token?:
+JWT (JSON Web Token) is a compact, URL-safe token used for securely transmitting information between parties. JWT2.0 refers to an updated version with enhanced features. JWT tokens are commonly used for authentication and authorization in web applications.
+
+106. Advantages of Hibernate Over JDBC?:
+
+Object-Relational Mapping (ORM): Easier data handling.
+Automatic Table Creation: Based on entities.
+HQL: Hibernate Query Language for database operations.
+Caching: Improved performance.
+Transaction Management: Built-in support.
+107. What is Session in Hibernate and is it Thread-Safe?:
+A Session in Hibernate is a single-threaded, short-lived object used to interact with the database. It is not thread-safe and should not be shared between threads.
+
+108. What is Lazy Loading in Hibernate?:
+Lazy loading in Hibernate defers the initialization of an object until it is needed, improving performance by avoiding unnecessary data fetching. It loads associated entities only when their properties are accessed.
+
+109. Can You Override Private and Static Method?:
+No, private methods cannot be overridden as they are not accessible outside their class. Static methods belong to the class, not instances, and thus cannot be overridden, only hidden.
+
+110. What Happens if an Exception is Thrown by Super Class?:
+If a superclass method throws an exception, the subclass overridden method can throw the same exception, subclasses of that exception, or no exception. It must adhere to the superclass method's exception specification.
+
+111. What is Wrapper Class?:
+A wrapper class in Java provides an object representation for primitive data types. Examples include Integer for int, Double for double, and Boolean for boolean. They offer methods for converting and manipulating primitive values.
+
+112. What is Garbage Collection?:
+Garbage collection is the process by which Java programs perform automatic memory management. The JVM automatically identifies and disposes of objects that are no longer needed to free up memory resources.
+
+113. Write a Singleton Design Pattern in Multi-Threaded Environment:
+
+java
+Copy code
+public class Singleton {
+    private static volatile Singleton instance;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+114. You Need to Store Password. What Type of Datatype You Will Use?:
+Use char[] instead of String to store passwords. char[] can be overwritten after use, reducing the risk of exposing the password in memory dumps.
+
+115. Difference Between Factory and Abstract Factory Design Pattern:
+
+Factory Pattern: Creates objects without exposing the instantiation logic to the client. It uses a single method to create objects.
+Abstract Factory Pattern: Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+116. Difference Between sleep() and wait():
+
+sleep(): Causes the current thread to pause execution for a specified time, without releasing the lock.
+wait(): Causes the current thread to wait until another thread calls notify() or notifyAll(), releasing the lock.
+117. Can You Access Non-Static Variable in Static Context?:
+No, non-static variables belong to instances of a class. A static context does not have access to instance-specific variables.
+
+118. Suppose You Declare Variables Outside Main Method. How to Access Variables in Main Method?:
+Non-static variables must be accessed through an instance of the class in the main method. Static variables can be accessed directly.
+
+119. Difference Between Comparator and Comparable in Java:
+
+Comparable: Used to define the natural ordering of objects, implemented using compareTo method within the class.
+Comparator: Used to define an external comparison strategy, implemented using compare method in a separate class.
+120. Is it Better to Make Method Synchronized or Critical Section Synchronized?:
+Synchronizing critical sections (blocks) is generally better as it reduces the scope of synchronization, thus improving performance and reducing the chance of deadlocks compared to synchronizing the entire method.
+
+121. In Try-Catch and Finally We Return the Value, Priority is in Which Block?:
+The finally block has priority for execution, even if a return statement is present in the try or catch block. The finally block is always executed.
+
+122. What is Aggregation?:
+Aggregation is a relationship where a class (whole) contains references to other classes (parts), but the lifecycle of the parts is independent of the whole. For example, a university and its departments.
+
+123. Have You Used Hibernate. What is the Difference Between Hibernate First Level Cache and Second Level Cache?:
+
+First-Level Cache: Session-level cache, default, and mandatory, caches within the session.
+Second-Level Cache: SessionFactory-level cache, optional, caches across sessions for better performance.
+124. What is Inversion of Control?:
+Inversion of Control (IoC) is a design principle where the control of object creation and lifecycle management is inverted. Frameworks like Spring handle object creation and dependency injection, promoting loose coupling.
+
+125. How Garbage Collection Works in Java?:
+Java's garbage collector identifies and disposes of objects that are no longer reachable from the application's root set (e.g., active threads, static fields). It uses algorithms like Mark-and-Sweep and Generational GC.
+
+126. Which Scenario Have You Used Optional Class & How Optional Class is Really Helpful?:
+The Optional class is used to avoid null checks and NullPointerExceptions. It is helpful in scenarios where a method might not return a value, providing a way to handle absence of value gracefully.
+
+127. Which Scenario We Will Use ArrayList and When We Will Use LinkedList?:
+
+ArrayList: When you need fast random access and iteration.
+LinkedList: When you need frequent insertions and deletions at the beginning or middle of the list.
+128. Do You Know What is Singleton?:
+A singleton is a design pattern that restricts a class to a single instance, ensuring a single point of access. It is used for centralized management of resources.
+
+129. What are Objectives of GET, PUT, POST, and DELETE Methods?:
+
+GET: Retrieve data.
+POST: Create new resource.
+PUT: Update existing resource.
+DELETE: Remove resource.
+130. API, Can We Use GET Method to Create Resources?:
+No, the GET method should not be used to create resources as it is intended for data retrieval and is idempotent. Use POST or PUT for resource creation.
+
+131. Employee Service Class Will Be Annotated with Which Annotation?:
+In Spring, the @Service annotation is used to mark a service class, indicating that it holds business logic and is a Spring-managed bean.
+
+132. What Would Happen if I Don’t Import java.lang Package?:
+The java.lang package is automatically imported by default, so you don't need to explicitly import it. If you don't import it manually, it still works.
+
+133. Have You Used Serialization Anywhere in Your Application?:
+Serialization is used for converting objects into a byte stream to save them to a file, send over a network, or store in a database. It is commonly used in distributed systems and caching.
+
+134. What is ResponseEntity and Benefit of Using ResponseEntity?:
+ResponseEntity in Spring MVC represents an entire HTTP response, including status code, headers, and body. It provides greater control over the response, allowing customization and setting of HTTP-specific details.
+
+135. What is Docker and Docker Image and Docker Container?:
+
+Docker: A platform for developing, shipping, and running applications in containers.
+Docker Image: A lightweight, standalone, and executable package that includes everything needed to run a piece of software.
+Docker Container: A runtime instance of a Docker image, isolated and secure.
+136. Suppose I Have List and I Want to Reverse It, How Can I Do That?:
+You can reverse a list in Java using Collections.reverse method:
+
+java
+Copy code
+Collections.reverse(list);
+137. Can You Tell Me Real World Example of Encapsulation?:
+An example of encapsulation is a car's dashboard controls, which allow drivers to interact with complex engine systems without needing to understand the underlying mechanics. The implementation details are hidden from the user.
+
+138. What is Stateless Object?:
+A stateless object does not retain any internal state between method calls. Each method call is independent and doesn't rely on data stored within the object, making it thread-safe and scalable.
+
+139. Can You Tell Me Difference @Component, @Service, and @Repository Annotation?:
+
+@Component: Generic stereotype for any Spring-managed component.
+@Service: Specialized annotation for service layer components.
+@Repository: Specialized annotation for data access layer components, providing additional persistence exception translation.
+140. Reason of Overriding Equals and HashCode Method?:
+Overriding equals and hashCode ensures that two objects with the same data are treated as equal and that they work correctly in hash-based collections like HashMap and HashSet.
+
+141. Have You Used Reflections Anywhere?:
+Reflections are used for dynamic class loading, inspecting or modifying runtime behavior, creating instances, accessing fields, and invoking methods dynamically. Useful in frameworks and libraries that require flexible and dynamic behavior.
+
+142. How Can We Create Object Dynamically at Runtime in Java?:
+Objects can be created dynamically using reflection:
+
+java
+Copy code
+Class<?> clazz = Class.forName("ClassName");
+Object obj = clazz.getDeclaredConstructor().newInstance();
+143. Is it Possible to Rethrow an Exception?:
+Yes, you can rethrow an exception using the throw keyword, typically in a catch block to pass the exception up the call stack for further handling.
+
+144. HashSet vs TreeSet, Which One is Better in Which Scenario?:
+
+HashSet: Offers constant-time performance for basic operations but does not maintain order. Use when order is not important.
+TreeSet: Maintains sorted order but has higher overhead. Use when sorted order is required.
+145. What is Use of Generics in Java?:
+Generics provide type safety and reduce the need for type casting by allowing classes, interfaces, and methods to operate on types specified at runtime. They improve code reusability and readability.
+
+146. What is Use of CopyOnWriteArrayList?:
+CopyOnWriteArrayList is a thread-safe variant of ArrayList where all mutative operations are implemented by making a fresh copy of the underlying array. It is useful in concurrent read-mostly scenarios.
+
+147. Synchronized Block or Method as Synchronized, Which One is Better?:
+Synchronized blocks are generally better as they allow more fine-grained control over synchronization, locking only the necessary section of code, which improves performance and reduces contention compared to synchronizing the entire method.
+
+148. What Type of IDE You Are Using?:
+Popular Java IDEs include IntelliJ IDEA, Eclipse, and NetBeans. These IDEs offer features like code completion, debugging, version control integration, and project management, enhancing developer productivity.
+
+149. Can You Tell Me the Difference Between Truncate and Delete?:
+
+TRUNCATE: Removes all rows from a table without logging individual row deletions. Faster, but can't be rolled back.
+DELETE: Removes specified rows from a table and logs individual row deletions. Can be rolled back.
+150. What are the Different Types of Exceptions You Have Faced Till Now?:
+Common exceptions include NullPointerException, ArrayIndexOutOfBoundsException, IllegalArgumentException, IOException, SQLException, and ClassNotFoundException.
+
+151. What is Order of Exception in Java, Which is Highest?:
+Exception hierarchy order:
+
+Throwable
+Error
+Exception
+RuntimeException
+The highest level is Throwable.
+152. Where Will Be a New Object Stored - Heap or Stack?:
+New objects are stored in the heap memory. References to these objects are stored on the stack.
+
+153. What is Instance Level Locking and Class Level Locking?:
+
+Instance Level Locking: Synchronizes access to instance methods or blocks, allowing only one thread to access the instance at a time.
+Class Level Locking: Synchronizes access to static methods or blocks, allowing only one thread to access the class level resource at a time.
+154. Difference Between Normal Interface and Functional Interface?:
+
+Normal Interface: Can have multiple abstract methods.
+Functional Interface: Contains exactly one abstract method, designed for lambda expressions and method references. Marked with @FunctionalInterface.
+155. There is Primitive Data Type int and Wrapper Class Integer. Which Will Take More Memory?:
+The wrapper class Integer will take more memory than the primitive type int because it includes object overhead in addition to the value it holds.
+
+156. I Am Expecting an Exception in One of My Code, How Can I Write Test Case for That?:
+Use JUnit to write a test case expecting an exception:
+
+java
+Copy code
+@Test(expected = YourException.class)
+public void testMethod() {
+    // code that should throw YourException
+}
+157. Difference Between Unit Test and Integration Test?:
+
+Unit Test: Tests individual components or functions in isolation.
+Integration Test: Tests the interaction between integrated components or systems to ensure they work together as expected.
+158. What is Test Driven Development and What Do You Think About It?:
+Test Driven Development (TDD) is a software development approach where tests are written before the code. It promotes better design, code quality, and ensures that the code meets requirements.
+
+159. Database ACID Properties:
+
+Atomicity: Ensures transactions are all-or-nothing.
+Consistency: Ensures database remains in a valid state.
+Isolation: Ensures concurrent transactions do not interfere.
+Durability: Ensures committed transactions are permanent.
+160. What are Joins in Database?:
+Joins are used to combine rows from two or more tables based on a related column. Types include INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL JOIN.
+
+161. In Database, When We Use Union, Intersection. Suppose Same Thing We Want to Apply in JPA?:
+In JPA, you can use JPQL or Criteria API to perform set operations like union and intersection. For complex queries, native SQL can also be used.
+
+162. How Are You Saving Data into the Database?:
+Data is saved into the database using ORM frameworks like Hibernate, JPA, or directly through JDBC by executing SQL insert/update queries.
+
+163. Prepared Statements vs Statement in JDBC:
+
+PreparedStatement: Precompiled SQL query, prevents SQL injection, better performance for repeated queries.
+Statement: Simple SQL query execution, prone to SQL injection, not precompiled.
+164. SQL Queries with Group By:
+GROUP BY is used to group rows sharing a property so aggregate functions can be applied:
+
+sql
+Copy code
+SELECT department, COUNT(*)
+FROM employees
+GROUP BY department;
+165. Primary Key vs Unique Key in Database?:
+
+Primary Key: Uniquely identifies each row, cannot be null, only one per table.
+Unique Key: Ensures all values in a column are unique, can have multiple per table, allows one null.
+166. What are Triggers in Database?:
+Triggers are database objects that automatically execute specified actions in response to certain events on a table, such as INSERT, UPDATE, or DELETE operations.
+
+167. SQL Query to Fetch the Name of Employee Who Earn the Highest Salary?:
+
+sql
+Copy code
+SELECT name
+FROM employees
+WHERE salary = (SELECT MAX(salary) FROM employees);

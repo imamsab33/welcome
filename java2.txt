@@ -1,0 +1,339 @@
+Certainly! Here's a concise answer for each question:
+
+1. **Why is String immutable in Java?**
+   String is immutable to enhance security, performance, and thread safety. This immutability ensures that once a String object is created, it cannot be altered, allowing safe sharing among multiple threads and enabling optimization techniques like string interning.
+
+2. **Difference between String and StringBuffer in Java?**
+   - **String:** Immutable, threadsafe, every modification creates a new object.
+   - **StringBuffer:** Mutable, threadsafe, can be modified without creating new objects.
+
+3. **Can we override static methods in Java?**
+   No, static methods cannot be overridden as they belong to the class, not instances.
+
+4. **Is String thread-safe?**
+   Yes, String is thread-safe because it is immutable.
+
+5. **What is the String constant pool in Java?**
+   A special memory region where String literals are stored to optimize memory usage by reusing common Strings.
+
+6. **How to prevent your class from being subclassed?**
+   Declare the class as `final`.
+
+7. **Which two methods are overridden by an object intended to be used as a key in HashMap?**
+   `hashCode()` and `equals()`.
+
+8. **Difference between List and Set in Java?**
+   - **List:** Ordered collection, allows duplicates.
+   - **Set:** Unordered collection, no duplicates.
+
+9. **How do you make a class immutable in Java?**
+   - Declare the class as `final`.
+   - Make all fields `private` and `final`.
+   - Provide no setters.
+   - Ensure that mutable objects are not directly accessible.
+
+10. **Difference between Hashtable and HashMap in Java?**
+    - **Hashtable:** Synchronized, thread-safe, no null keys/values.
+    - **HashMap:** Not synchronized, allows null keys/values.
+
+11. **How will you iterate a Map?**
+    Using methods like `entrySet()`, `keySet()`, or `values()` along with enhanced for-loop, iterator, or forEach.
+
+12. **What is type safety? How to use it?**
+    Ensuring variables are used consistently with their declared types. Use generics to enforce compile-time type checking.
+
+13. **Difference between ArrayList and LinkedList in Java?**
+    - **ArrayList:** Fast random access, slower inserts/deletes.
+    - **LinkedList:** Slower random access, faster inserts/deletes.
+
+14. **Difference between checked and unchecked exception in Java?**
+    - **Checked Exception:** Must be handled or declared (compile-time).
+    - **Unchecked Exception:** Runtime exceptions, no mandatory handling.
+
+15. **How to convert an array to a list?**
+    Use `Arrays.asList(array)`.
+
+16. **Difference between Serializable and Externalizable interface in Java?**
+    - **Serializable:** Default serialization process.
+    - **Externalizable:** Custom serialization control by implementing `writeExternal` and `readExternal` methods.
+
+17. **Explain Singleton Design Pattern. Write your class to make singleton design pattern.**
+    Ensures a class has only one instance and provides a global point of access to it.
+    ```java
+    public class Singleton {
+        private static Singleton instance;
+        private Singleton() {}
+        public static Singleton getInstance() {
+            if (instance == null) {
+                instance = new Singleton();
+            }
+            return instance;
+        }
+    }
+    ```
+
+18. **Difference between local and instance variable:**
+    - **Local Variable:** Defined within methods, scope is limited to the method.
+    - **Instance Variable:** Defined within a class but outside methods, scope is the entire class, tied to object instances.
+
+19. **What is serialization?**
+    Converting an object into a byte stream for storage or transmission.
+
+20. **Difference between == and .equals in Java?**
+    - `==`: Checks reference equality.
+    - `.equals()`: Checks logical equality.
+
+21. **Difference between unique key and primary key?**
+    - **Unique Key:** Ensures all values are unique, allows nulls.
+    - **Primary Key:** Unique identifier for a record, no nulls allowed.
+
+22. **Difference between method overriding and method overloading in Java?**
+    - **Overriding:** Redefining a method in a subclass.
+    - **Overloading:** Multiple methods with the same name but different parameters.
+
+23. **What are types of access specifiers?**
+    - `private`
+    - `default` (package-private)
+    - `protected`
+    - `public`
+
+24. **Explain use of this keyword?**
+    Refers to the current instance of a class.
+
+25. **Explain exception hierarchy:**
+    - **Throwable**
+      - **Error**
+      - **Exception**
+        - **RuntimeException**
+        - **Checked Exceptions**
+
+26. **What is index and view in database?**
+    - **Index:** Data structure that improves the speed of data retrieval.
+    - **View:** A virtual table based on a query.
+
+27. **Difference between extending thread class and implementing runnable interface?**
+    - **Extending Thread:** Inherits Thread class, less flexible.
+    - **Implementing Runnable:** More flexible, can extend another class.
+
+28. **How can we avoid null pointer exception?**
+    Use null checks, `Optional`, and proper initializations.
+
+29. **OOPS concepts:**
+    - Encapsulation
+    - Inheritance
+    - Polymorphism
+    - Abstraction
+
+30. **Difference between Abstraction and Encapsulation? How you use it in your project:**
+    - **Abstraction:** Hiding implementation details, showing only functionalities.
+    - **Encapsulation:** Wrapping data and code together.
+    - Usage: Interfaces for abstraction, private fields with public getters/setters for encapsulation.
+
+31. **When to use abstract class and interface in Java?**
+    - **Abstract Class:** When methods have common implementation.
+    - **Interface:** When only method signatures are needed.
+
+32. **Difference between abstract class and interface?**
+    - **Abstract Class:** Can have method implementations, state.
+    - **Interface:** No method implementations (until Java 8 default methods), no state.
+
+33. **Difference between Exception and Errors?**
+    - **Exception:** Recoverable.
+    - **Error:** Generally not recoverable, indicates serious problems.
+
+34. **Difference between throw, throws and finally:**
+    - **throw:** Used to explicitly throw an exception.
+    - **throws:** Declares exceptions that a method can throw.
+    - **finally:** Block that executes regardless of exception handling.
+
+35. **What is class?**
+    A blueprint for creating objects, defines properties and behaviors.
+
+36. **What is an object?**
+    An instance of a class.
+
+37. **Difference between class and object?**
+    - **Class:** Blueprint.
+    - **Object:** Instance of the blueprint.
+
+38. **What is method overloading?**
+    Defining multiple methods with the same name but different parameter lists.
+
+39. **What is method overriding?**
+    Redefining a superclass method in a subclass.
+
+40. **What is a thread?**
+    A unit of execution within a program.
+
+41. **File handling in Java?**
+    Using classes like `File`, `FileReader`, `FileWriter`, `BufferedReader`, and `BufferedWriter` to read and write files.
+
+42. **Purpose of static method and static variable?**
+    Belong to the class rather than instances, shared among all instances.
+
+43. **Difference between continue and break:**
+    - **continue:** Skips the current iteration.
+    - **break:** Exits the loop.
+
+44. **What is final keyword in Java?**
+    Used to declare constants, prevent inheritance, and prevent method overriding.
+
+45. **What is JIT compiler?**
+    Just-In-Time compiler that converts bytecode to native machine code at runtime.
+
+46. **What is WORA concept in Java?**
+    Write Once, Run Anywhere - Java programs can run on any device with a JVM.
+
+47. **Purpose of default constructor?**
+    Provides a no-argument constructor if no other constructors are defined.
+
+48. **What is class loader in Java?**
+    Part of the JVM that loads classes into memory.
+
+49. **What is inheritance?**
+    Mechanism where a new class inherits properties and behaviors from an existing class.
+
+50. **What is object cloning?**
+    Creating an exact copy of an object using the `clone()` method.
+
+51. **What is method overriding?**
+    Redefining a superclass method in a subclass.
+
+52. **Static binding and dynamic binding:**
+    - **Static Binding:** Compile-time binding.
+    - **Dynamic Binding:** Runtime binding.
+
+53. **What is interface?**
+    A reference type in Java, similar to a class, that can contain only abstract methods, default methods, and static methods.
+
+54. **What is exception handling in Java?**
+    Mechanism to handle runtime errors using `try`, `catch`, `finally`, and `throw`.
+
+55. **Can finally block be used without catch in Java?**
+    Yes, it can be used with a `try` block alone.
+
+56. **What is garbage collection?**
+    Automatic memory management process that deallocates unused objects.
+
+57. **Difference between Array and Vector?**
+    - **Array:** Fixed size.
+    - **Vector:** Resizable, synchronized.
+
+58. **Why don’t we have destructors in Java?**
+    Java has garbage collection for automatic memory management.
+
+59. **What is object and how it is stored in Java?**
+    An instance of a class stored in the heap memory.
+
+60. **What is base class for all exception classes?**
+    `java.lang.Throwable`.
+
+61. **Explain JDK, JRE and JVM in Java?**
+   
+
+ - **JDK:** Java Development Kit, includes JRE and development tools.
+    - **JRE:** Java Runtime Environment, includes JVM and libraries.
+    - **JVM:** Java Virtual Machine, executes bytecode.
+
+62. **Why char array is preferred to store password than Strings?**
+    Char array can be explicitly cleared from memory for security.
+
+63. **How many objects are created in JVM when a string type variable is assigned using new keyword?**
+    One new String object in the heap.
+
+64. **What is classpath in Java?**
+    Environment variable specifying the location of user-defined classes and packages.
+
+65. **Is Java completely object-oriented?**
+    No, it has primitive types which are not objects.
+
+66. **What makes Java platform independent?**
+    Bytecode can be run on any system with a compatible JVM.
+
+67. **What is dynamic polymorphism?**
+    Method overriding, where the call to an overridden method is resolved at runtime.
+
+68. **What is multiple inheritance in Java?**
+    A class inheriting from more than one class, not supported in Java with classes but possible with interfaces.
+
+69. **Is multiple inheritance supported in Java?**
+    No, but a class can implement multiple interfaces.
+
+70. **What is a wrapper class in Java?**
+    Provides a way to use primitive data types as objects.
+
+71. **Can a Java source file have more than one public class?**
+    No, it can have only one public class which must match the filename.
+
+72. **Write a program to remove duplicates from an array:**
+    ```java
+    import java.util.HashSet;
+
+    public class RemoveDuplicates {
+        public static void main(String[] args) {
+            int[] array = {1, 2, 2, 3, 4, 4, 5};
+            HashSet<Integer> set = new HashSet<>();
+            for (int value : array) {
+                set.add(value);
+            }
+            System.out.println(set);
+        }
+    }
+    ```
+
+73. **Write a program to reverse a string without using any API:**
+    ```java
+    public class ReverseString {
+        public static void main(String[] args) {
+            String str = "hello";
+            String reversed = "";
+            for (int i = str.length() - 1; i >= 0; i--) {
+                reversed += str.charAt(i);
+            }
+            System.out.println(reversed);
+        }
+    }
+    ```
+
+74. **What are Java design patterns you have used in your application?**
+    Singleton, Factory, Observer, Strategy, and Decorator patterns.
+
+75. **What are the tools you have used to improve the performance of your application?**
+    Profilers (like JProfiler), caching (like Ehcache), and code optimization tools (like PMD, FindBugs).
+
+76. **How you optimize the code for JDBC?**
+    Use connection pooling, prepared statements, batch updates, and indexing in the database.
+
+77. **What are the differences between C++ and Java?**
+    - **C++:** Supports pointers, multiple inheritance, manual memory management.
+    - **Java:** No pointers, no multiple inheritance with classes, automatic garbage collection.
+
+78. **List the features of the Java Programming language:**
+    - Platform-independent
+    - Object-oriented
+    - Robust
+    - Secure
+    - Multithreaded
+    - High performance with JIT
+
+79. **What is a ClassLoader?**
+    Part of the JVM that loads classes into memory during runtime.
+
+80. **What are the Memory Allocations available in Java?**
+    - **Heap:** For dynamic allocation.
+    - **Stack:** For method execution and local variables.
+    - **Metaspace:** For class metadata.
+
+81. **What are the differences between Heap and Stack Memory in Java?**
+    - **Heap:** Used for dynamic allocation, shared among threads.
+    - **Stack:** Used for static allocation, thread-specific.
+
+82. **Define Copy Constructor in Java:**
+    Java doesn't support copy constructors natively; we achieve it via cloning or custom methods.
+
+83. **Can you implement pointers in a Java Program?**
+    No, Java does not support pointers for security and simplicity.
+
+84. **Differentiate between instance and local variables give answers in 50 words for each question:**
+    - **Instance Variable:** Declared inside a class but outside any method. It represents the state of an object and is accessible throughout the class.
+    - **Local Variable:** Declared within a method or a block. It is only accessible within the method/block where it is declared and gets destroyed once the method/block execution is complete.

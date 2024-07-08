@@ -1,0 +1,692 @@
+   Java Interview Questions
+===============================
+
+1. **Why String is immutable in Java?**
+
+   String is immutable in Java to enhance security, synchronization, and performance. Once created, its value cannot be changed, ensuring the integrity of data. This immutability allows safe sharing across threads and enables efficient memory management with the string constant pool.
+
+2. **Difference between String and StringBuffer in Java?**
+
+   String is immutable, meaning its value cannot be changed once created. StringBuffer is mutable and allows modification without creating new objects. StringBuffer is also synchronized, making it thread-safe, while String is inherently thread-safe due to its immutability.
+
+3. **Can we override static methods in Java?**
+
+   No, static methods cannot be overridden in Java. They belong to the class, not instances, and method resolution occurs at compile-time. However, they can be hidden in subclasses, meaning the method in the subclass will mask the superclass's static method.
+
+4. **Is String thread-safe?**
+
+   Yes, String is thread-safe because it is immutable. Since its state cannot be changed after creation, it can be safely shared between multiple threads without synchronization, preventing issues like data inconsistency and race conditions.
+
+5. **What is String constant pool in Java?**
+
+   The String constant pool is a special memory region in the Java heap where String literals are stored. When a new String literal is created, the JVM checks the pool first and returns the existing reference if the literal already exists, enhancing memory efficiency and performance.
+
+6. **How to prevent your class from being subclassed?**
+
+   To prevent a class from being subclassed in Java, declare the class as `final`. A `final` class cannot be extended. For example: `public final class MyClass { ... }`.
+
+7. **Which two methods are overridden by an Object intended to be used as a key in HashMap?**
+
+   The `equals()` and `hashCode()` methods must be overridden for an object to be used as a key in a `HashMap`. This ensures correct behavior for key comparisons and hash bucket placement.
+
+8. **Difference between List and Set in Java?**
+
+   A `List` allows duplicate elements and maintains the insertion order. A `Set` does not allow duplicates and does not guarantee any specific order. Examples include `ArrayList` (List) and `HashSet` (Set).
+
+9. **How do you make a class immutable in Java?**
+
+   To make a class immutable, declare the class as `final`, make all fields `private` and `final`, do not provide setter methods, and initialize all fields via a constructor. Ensure methods do not modify the object state.
+
+10. **Difference between Hashtable and HashMap in Java?**
+
+    `Hashtable` is synchronized and thread-safe but slower, while `HashMap` is unsynchronized, faster, and not thread-safe. `HashMap` allows one null key and multiple null values, whereas `Hashtable` does not allow any null key or value.
+
+11. **How will you iterate Map?**
+
+    You can iterate a `Map` using methods like `entrySet()`, `keySet()`, or `values()`, typically with a for-each loop or an iterator. For example:
+    ```java
+    for (Map.Entry<KeyType, ValueType> entry : map.entrySet()) {
+        KeyType key = entry.getKey();
+        ValueType value = entry.getValue();
+    }
+    ```
+
+12. **What is type safety? How to use it?**
+
+    Type safety ensures that a variable or object only holds values of a specific type, preventing type errors. In Java, use generics to enforce type safety, e.g., `List<String> list = new ArrayList<>();`.
+
+13. **Difference between ArrayList and LinkedList in Java?**
+
+    `ArrayList` uses a dynamic array, offering fast random access but slow insertions/deletions in the middle. `LinkedList` uses a doubly linked list, allowing fast insertions/deletions but slower random access.
+
+14. **Difference between checked and unchecked exception in Java?**
+
+    Checked exceptions are checked at compile-time and must be either caught or declared in the method signature using `throws`. Unchecked exceptions (runtime exceptions) are checked at runtime and do not require explicit handling.
+
+15. **How to convert an array to a list?**
+
+    Use `Arrays.asList(array)` to convert an array to a list:
+    ```java
+    String[] array = {"a", "b", "c"};
+    List<String> list = Arrays.asList(array);
+    ```
+
+16. **Difference between Serializable and Externalizable interface in Java?**
+
+    `Serializable` uses default serialization provided by the JVM, while `Externalizable` allows custom serialization by implementing `writeExternal` and `readExternal` methods, providing more control over the process.
+
+17. **Explain Singleton Design Pattern? Write your class to make singleton design pattern.**
+
+    The Singleton Design Pattern ensures a class has only one instance and provides a global access point to it. Example:
+    ```java
+    public class Singleton {
+        private static Singleton instance;
+
+        private Singleton() {}
+
+        public static synchronized Singleton getInstance() {
+            if (instance == null) {
+                instance = new Singleton();
+            }
+            return instance;
+        }
+    }
+    ```
+
+18. **Difference between local and instance variable?**
+
+    Local variables are declared within a method or block and are only accessible there. Instance variables are declared within a class but outside any method and are accessible to all methods in the class.
+
+19. **What is serialization?**
+
+    Serialization is the process of converting an object into a byte stream to save it to a file or transmit it over a network, enabling it to be recreated later. This is achieved by implementing the `Serializable` interface.
+
+20. **Difference between `==` and `.equals` in Java?**
+
+    `==` checks for reference equality, meaning whether two references point to the same object. `.equals` checks for value equality, meaning whether two objects are logically equivalent, as defined by the method's implementation.
+
+21. Difference between unique key and primary key ?
+
+A **primary key** uniquely identifies each record in a table and cannot be null. A **unique key** also ensures all values are unique across the column but allows one null value. Each table can have one primary key but multiple unique keys.
+
+### 22. Difference between method overriding and method overloading in Java?
+
+**Method Overriding**: 
+
+- Occurs when a subclass provides a specific implementation of a method that is already defined in its superclass.
+- Used for runtime polymorphism.
+
+**Method Overloading**: 
+
+- Occurs when multiple methods have the same name but different parameters within the same class.
+- Used for compile-time polymorphism.
+
+### 23. What are types of access specifiers?
+
+- **public**: Accessible from any other class.
+- **protected**: Accessible within the same package and subclasses.
+- **default** (no specifier): Accessible only within the same package.
+- **private**: Accessible only within the declared class.
+
+### 24. Explain use of this keyword?
+
+- **this** keyword refers to the current instance of the class.
+- Used to access class variables and methods, distinguish between class fields and parameters, and invoke constructors.
+
+### 25. Explain exception hierarchy?
+
+- **Throwable**: Root of the exception hierarchy.
+  - **Exception**: Used for conditions that applications might want to catch.
+    - **RuntimeException**: Unchecked exceptions (e.g., NullPointerException).
+    - **Checked Exceptions**: Must be declared or handled (e.g., IOException).
+  - **Error**: Indicates serious problems (e.g., OutOfMemoryError).
+
+### 26. What is index and view in database?
+
+- **Index**: Data structure that improves the speed of data retrieval operations on a database table.
+- **View**: Virtual table representing the result of a database query; it does not store data itself but provides a dynamic way to look at data from one or more tables.
+
+### 27. Difference between extending Thread class and Runnable interface?
+
+**Extending Thread**: 
+- Inherits from the Thread class, cannot extend any other class.
+- Simplifies thread management but is less flexible.
+
+**Implementing Runnable**: 
+- Implements the Runnable interface, allows extending other classes.
+- Promotes better design and reusability.
+
+### 28. How can we avoid null pointer exception?
+
+- Use explicit null checks.
+- Use `Optional` class in Java 8+.
+- Initialize objects properly.
+- Use default values or `Objects.requireNonNull`.
+
+### 29. OOPS concepts?
+
+- **Encapsulation**: Bundling data and methods that operate on the data within one unit (class).
+- **Inheritance**: Mechanism where one class inherits properties and behaviors of another.
+- **Polymorphism**: Ability of a variable, function, or object to take multiple forms.
+- **Abstraction**: Hiding complex implementation details and showing only the necessary features.
+
+### 30. Difference between Abstraction and encapsulation? How do you use it in your project?
+**Abstraction**: 
+- Focuses on exposing only the necessary parts of an object.
+- Used in my project by defining interfaces and abstract classes to represent core behaviors without exposing implementation details.
+
+**Encapsulation**: 
+- Focuses on hiding the internal state and requiring all interactions to be performed through an object's methods.
+- Applied in my project by using private fields and providing public getter/setter methods to control access to those fields.
+
+31. **When to use abstract class and interface in Java?**
+
+   Use an abstract class when you want to share code among several closely related classes. Use an interface to define a contract for classes that may not be related, ensuring they implement certain methods. Abstract classes can have state and behavior, while interfaces cannot.
+
+32. **Difference between abstract class and interface?**
+
+   An abstract class can have both abstract and concrete methods, while an interface can only have abstract methods (Java 8+ allows default methods). An abstract class allows instance variables, constructors, and state, while an interface cannot have instance variables.
+
+33. **Difference between Exception and Error?**
+
+   Exceptions are conditions that a program can anticipate and handle (e.g., `IOException`), while Errors represent serious issues not expected to be caught or handled (e.g., `OutOfMemoryError`). Exceptions are checked at compile-time, errors typically are not.
+
+34. **Difference between throw, throws and finally?**
+
+   `throw` is used to explicitly throw an exception. `throws` is used in a method signature to declare that the method can throw exceptions. `finally` is a block used to execute important code (like resource cleanup) regardless of whether an exception is thrown.
+
+35. **What is class?**
+
+   A class in Java is a blueprint for creating objects. It defines a datatype by bundling data and methods that operate on the data into a single unit. Classes can include fields, methods, constructors, and nested classes.
+
+36. **What is an object?**
+
+   An object is an instance of a class. It contains state (fields) and behavior (methods) defined by the class. Objects are created from classes and interact with one another in a Java program.
+
+37. **Difference between class and object?**
+
+   A class is a blueprint or template for creating objects, defining the properties and behaviors. An object is an instance of a class, representing a specific entity with actual values and behaviors defined by the class.
+
+38. **What is method overloading?**
+
+   Method overloading allows a class to have multiple methods with the same name but different parameter lists (different type, number, or order of parameters). It provides a way to define similar operations with different inputs.
+
+39. **What is method overriding?**
+
+   Method overriding occurs when a subclass provides a specific implementation for a method already defined in its superclass. The overridden method in the subclass should have the same name, return type, and parameters.
+
+40. **What is a thread?**
+
+   A thread is the smallest unit of a process that can be scheduled for execution. In Java, threads allow concurrent execution of two or more parts of a program for maximum utilization of CPU. Java supports threads via the `Thread` class and `Runnable` interface.
+
+41. **File handling in Java?**
+
+   File handling in Java involves reading from and writing to files using classes like `File`, `FileReader`, `FileWriter`, `BufferedReader`, `BufferedWriter`, and `Scanner`. Java provides various methods for creating, deleting, and manipulating files and directories.
+
+42. **Purpose of static method and static variable?**
+
+   Static methods belong to the class rather than instances, meaning they can be called without creating an object. Static variables are shared among all instances of a class, holding a common value. Both are used for memory efficiency and shared data.
+
+43. **Difference between continue and break?**
+
+   `continue` skips the current iteration of a loop and proceeds to the next iteration. `break` exits the loop or switch statement entirely, transferring control to the next statement following the loop or switch.
+
+44. **What is final keyword in Java?**
+
+   The `final` keyword in Java is used to declare constants, prevent method overriding, and inheritance. When applied to a variable, it makes the variable's value immutable. When applied to methods or classes, it prevents further modification or extension.
+
+45. **What is JIT compiler?**
+
+   The Just-In-Time (JIT) compiler is part of the Java Runtime Environment (JRE) that improves the performance of Java applications by compiling bytecode into native machine code at runtime, enabling faster execution.
+
+46. **What is WORA concept in Java?**
+
+   Write Once, Run Anywhere (WORA) is a key feature of Java, meaning that code written and compiled in Java can run on any platform with a compatible Java Virtual Machine (JVM), promoting cross-platform compatibility.
+
+47. **Purpose of default constructor?**
+
+   A default constructor is provided by Java if no constructors are defined in a class. It initializes objects with default values. If a custom constructor is defined, the default constructor must be explicitly declared if needed.
+
+48. **What is class loader in Java?**
+
+   A class loader in Java is part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. It can also perform tasks like verification and preparation of classes. There are three main types: Bootstrap, Extension, and Application class loaders.
+
+49. **What is inheritance?**
+
+   Inheritance is an OOP concept where one class (subclass) derives properties and behavior (methods) from another class (superclass). It promotes code reuse and establishes a hierarchical relationship between classes.
+
+50. **What is object cloning?**
+
+   Object cloning is the process of creating an exact copy of an existing object. In Java, the `Cloneable` interface and `clone()` method are used to perform cloning. It provides a way to duplicate objects without calling their constructors.
+
+51. **What is method overriding?**
+
+   Method overriding allows a subclass to provide a specific implementation for a method already defined in its superclass. The overridden method in the subclass should have the same name, return type, and parameters as the method in the superclass.
+
+52. **Static binding and dynamic binding?**
+
+   Static binding (or early binding) occurs at compile-time, where method calls are resolved using the reference type. Dynamic binding (or late binding) occurs at runtime, where method calls are resolved using the actual object's type. Overriding relies on dynamic binding.
+
+53. **What is interface?**
+
+   An interface in Java is a reference type that defines a contract of abstract methods that a class must implement. Interfaces allow for multiple inheritance and the definition of methods that various classes can implement in their way.
+
+54. **What is exception handling in Java?**
+
+   Exception handling in Java is a mechanism to handle runtime errors, ensuring normal application flow. It uses `try`, `catch`, `throw`, `throws`, and `finally` blocks to detect and handle exceptions, providing a way to respond to different error conditions.
+
+55. **Can finally block be used without catch in Java?**
+   Yes, a `finally` block can be used without a `catch` block. It is paired with a `try` block and will execute regardless of whether an exception is thrown, ensuring that resources are released or cleanup actions are performed.
+
+56. **What is garbage collection?**
+
+   Garbage collection in Java is the process of automatically identifying and reclaiming memory that is no longer in use by the program. The Java Virtual Machine (JVM) handles garbage collection, freeing up memory and preventing memory leaks.
+
+57. **Difference between Array and Vector?**
+
+   An `Array` is a fixed-size data structure that stores elements of the same type. `Vector` is a dynamic array that can grow or shrink in size and is synchronized, making it thread-safe but slower compared to `ArrayList`.
+
+58. **Why don't we have destructors in Java?**
+
+   Java does not have destructors because it relies on garbage collection to manage memory. The garbage collector automatically deallocates memory, making explicit destructors unnecessary and reducing the risk of memory leaks and other related issues.
+
+59. **What is object and how it is stored in Java?**
+
+   An object is an instance of a class, encapsulating data and behavior. In Java, objects are stored in the heap memory, which is managed by the JVM. References to objects are stored in the stack memory.
+
+60. **What is base class for all exception classes?**
+
+   The base class for all exception classes in Java is `java.lang.Throwable`. It has two main subclasses: `Exception` (for recoverable conditions) and `Error` (for serious, non-recoverable conditions).
+
+61. **Explain JDK, JRE and JVM in Java?**
+
+   - **JDK (Java Development Kit):** A toolkit containing the JRE and development tools like the compiler (`javac`), debugger, and libraries for developing Java applications.
+   - **JRE (Java Runtime Environment):** A runtime environment providing libraries, JVM, and other components to run Java applications.
+   - **JVM (Java Virtual Machine):** An abstract machine that executes Java bytecode, providing platform independence by translating bytecode into native machine code.
+
+62. **Why char array is preferred to store password than Strings?**
+
+   `char[]` is preferred for storing passwords because it allows explicit control over the data, enabling it to be overwritten or cleared after use. `String` is immutable, meaning the password data remains in memory until garbage collection, potentially exposing it.
+
+63. **How many objects are created in JVM when a string type variable is assigned using new keyword?**
+
+   When a `String` is created using the `new` keyword, at least one new object is created in the heap memory, regardless of whether the string value already exists in the string constant pool.
+
+64. **What is classpath in Java?**
+
+   The classpath in Java is a parameter that specifies the location of user-defined classes and packages. It is used by the JVM and Java tools to locate classes needed for execution or compilation.
+
+65. **Is Java completely object-oriented?**
+
+   Java is not completely object-oriented because it uses primitive data types (e.g., `int`, `char`) that are not objects. For full object-oriented programming, Java provides wrapper classes for these primitives.
+
+66. **What makes Java platform-independent?**
+
+   Java is platform-independent due to the use of the Java Virtual Machine (JVM). Java programs are compiled into bytecode, which can be executed on any platform with a compatible JVM, allowing the same code to run anywhere.
+
+67. **What is dynamic polymorphism?**
+
+   Dynamic polymorphism, or runtime polymorphism, in Java is achieved through method overriding. It allows objects to be treated as instances of their superclass, with the actual method invoked determined at runtime based on the object's type.
+
+68. **What is multiple inheritance in Java?**
+
+   Multiple inheritance refers to a class inheriting features from more than one parent class. Java does not support multiple inheritance with classes to avoid complexity and ambiguity but supports it with interfaces, allowing a class to implement multiple interfaces.
+
+69. **Is multiple inheritance supported in Java?**
+
+   Multiple inheritance of classes is not supported in Java to avoid the diamond problem. However, a class can implement multiple interfaces, achieving multiple inheritance-like behavior without the associated complexities.
+
+70. **What is a wrapper class in Java?**
+
+   A wrapper class in Java provides a way to use primitive data types (e.g., `int`, `char`) as objects. Each primitive type has a corresponding wrapper class (e.g., `Integer`, `Character`). They are useful in collections, where objects are required instead of primitives.
+Sure, let's address each question one by one.
+
+### 71. Can a Java source file have more than one public class?
+No, a Java source file can have at most one public class. If a source file has a public class, the name of the file must match the name of the public class. Other classes within the same file can be non-public.
+
+### 72. Write a program to remove duplicates from an array?
+
+Here's a simple Java program to remove duplicates from an array:
+
+```java
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 1, 2, 4, 5};
+        array = removeDuplicates(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static int[] removeDuplicates(int[] array) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int num : array) {
+            set.add(num);
+        }
+        int[] result = new int[set.size()];
+        int i = 0;
+        for (int num : set) {
+            result[i++] = num;
+        }
+        return result;
+    }
+}
+```
+
+### 73. Write a program to reverse a string without using any API?
+
+Here's a simple Java program to reverse a string without using any API:
+
+```java
+public class ReverseString {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        System.out.println(reverse(str));
+    }
+
+    public static String reverse(String str) {
+        char[] chars = str.toCharArray();
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            char temp = chars[left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left++;
+            right--;
+        }
+
+        return new String(chars);
+    }
+}
+```
+
+### 74. What are Java design patterns you have used in your application?
+
+Some common Java design patterns used in applications are:
+- Singleton Pattern
+- Factory Pattern
+- Observer Pattern
+- Strategy Pattern
+- Decorator Pattern
+- Proxy Pattern
+- Adapter Pattern
+- Iterator Pattern
+
+### 75. What are the tools you have used to improve the performance of your application?
+
+Tools that can be used to improve the performance of a Java application include:
+- Profilers (e.g., VisualVM, YourKit, JProfiler)
+- Monitoring tools (e.g., New Relic, AppDynamics)
+- Code analyzers (e.g., SonarQube)
+- Build tools (e.g., Maven, Gradle)
+- Caching mechanisms (e.g., Ehcache, Redis)
+- Database optimization tools (e.g., Hibernate Profiler)
+
+### 76. How do you optimize the code for JDBC?
+
+Optimizing JDBC code involves:
+- Using connection pooling
+- Prepared Statements for repeated queries
+- Batch processing for bulk operations
+- Fetch size tuning
+- Proper exception handling
+- Indexing database tables
+- Avoiding unnecessary data retrieval
+
+### 77. What are the differences between C++ and Java?
+
+- **Memory Management**: C++ uses manual memory management (new/delete), while Java uses automatic garbage collection.
+- **Multiple Inheritance**: C++ supports multiple inheritance, Java does not (uses interfaces).
+- **Platform Dependency**: C++ is platform-dependent, while Java is platform-independent (runs on JVM).
+- **Pointers**: C++ supports pointers, Java does not.
+- **Syntax**: Java has a more strict syntax, C++ is more permissive.
+- **Libraries**: Java has a rich standard library, C++ has the Standard Template Library (STL).
+
+### 78. List the features of the Java Programming language?
+
+- Object-Oriented
+- Platform-Independent
+- Simple and Easy to Learn
+- Secure
+- Robust
+- Multithreaded
+- High Performance (with Just-In-Time compilers)
+- Distributed
+- Dynamic
+
+### 79. What is a ClassLoader?
+
+A ClassLoader in Java is a part of the Java Runtime Environment that dynamically loads Java classes into the Java Virtual Machine. It is responsible for loading classes, linking them, and initializing them.
+
+### 80. What are the Memory Allocations available in Java?
+
+Memory in Java is primarily divided into:
+- **Heap Memory**: Used for dynamic allocation of objects.
+- **Stack Memory**: Used for static memory allocation and execution of threads.
+
+### 81. What are the differences between Heap and Stack Memory in Java?
+
+- **Heap Memory**: 
+  - Stores objects and their instance variables.
+  - Managed by the Garbage Collector.
+  - Larger in size compared to the stack.
+
+- **Stack Memory**: 
+  - Stores method calls, local variables, and reference variables.
+  - Follows LIFO (Last In First Out) order.
+  - Smaller in size, and is thread-specific.
+
+### 82. Define Copy Constructor in Java?
+
+Java does not have a built-in copy constructor like C++. However, you can create one by defining a constructor that takes another object of the same class and copies its fields.
+
+```java
+public class Example {
+    private int value;
+
+    public Example(int value) {
+        this.value = value;
+    }
+
+    // Copy Constructor
+    public Example(Example other) {
+        this.value = other.value;
+    }
+}
+```
+
+### 83. Can you implement pointers in a Java Program?
+
+No, Java does not support pointers as in C or C++. Java uses references to handle objects and performs automatic garbage collection to manage memory.
+
+### 84. Differentiate between instance and local variables?
+
+- **Instance Variables**:
+  - Declared within a class but outside any method.
+  - Belong to an instance of the class.
+  - Persist as long as the object exists.
+
+- **Local Variables**:
+  - Declared within a method, constructor, or block.
+  - Scope is limited to the method, constructor, or block they are declared in.
+  - Exist only during the execution of that method, constructor, or block.
+
+Sure, here are the answers to your questions:
+
+**85. Can you call a constructor of a class inside another constructor?**
+
+Yes, in Java, you can call a constructor of the same class from another constructor using `this()` keyword. This is known as constructor chaining and helps to avoid redundancy and maintain cleaner code.
+
+**86. How does the size of ArrayList grow dynamically?**
+
+An `ArrayList` in Java grows dynamically by increasing its capacity by 50% when it gets full. This is achieved internally by creating a new array with larger capacity and copying the elements from the old array to the new one.
+
+**87. Difference between static methods, static variables, and static classes in Java:**
+
+- **Static Methods:** Belong to the class rather than instances and can be called without creating an object of the class.
+- **Static Variables:** Also known as class variables, these are shared among all instances of the class.
+- **Static Classes:** These are nested classes declared with the `static` keyword and can be accessed without creating an instance of the outer class.
+
+**88. Why is Java not a pure object-oriented language?**
+
+Java is not considered purely object-oriented because it uses primitive data types (e.g., int, char, etc.) which are not objects, thus deviating from the pure object-oriented principle where everything should be an object.
+
+**89. What do you understand about an instance variable and a local variable?**
+
+- **Instance Variable:** Defined in a class but outside any method, and each instance of the class has its own copy of the variable.
+- **Local Variable:** Defined within a method, constructor, or block and is only accessible within that scope.
+
+**90. What are Composition and Aggregation?**
+
+- **Composition:** A form of association where one class contains another class and is responsible for its lifecycle (strong association).
+- **Aggregation:** A form of association where one class contains a reference to another class but does not manage its lifecycle (weak association).
+
+**91. What do you mean by data encapsulation?**
+
+Data encapsulation is an object-oriented principle where the internal state of an object is hidden from outside interference and misuse. This is achieved through access modifiers and getter/setter methods.
+
+**92. What is the ‘IS-A’ relationship in OOPs Java?**
+
+The `IS-A` relationship represents inheritance in Java, where one class (subclass) inherits the properties and behaviors of another class (superclass), establishing a hierarchical relationship.
+
+**93. How is the creation of a String using new() different from that of a literal?**
+
+Creating a `String` using `new()` creates a new object in the heap memory, whereas a `String` literal may reuse existing objects from the string pool, leading to memory efficiency.
+
+**94. Why is synchronization necessary?**
+
+Synchronization is necessary to prevent thread interference and ensure consistency when multiple threads access shared resources, providing a mechanism for thread-safe operations.
+
+**95. What are shallow copy and deep copy in Java?**
+
+- **Shallow Copy:** Creates a new instance of the object but does not clone the objects that the original object references.
+- **Deep Copy:** Creates a new instance of the object and also clones all objects referenced by the original object, ensuring complete duplication.
+
+**96. Write a Java Program to print Fibonacci Series using Recursion:**
+
+```java
+public class Fibonacci {
+    public static void main(String[] args) {
+        int n = 10;
+        for (int i = 0; i < n; i++) {
+            System.out.print(fib(i) + " ");
+        }
+    }
+
+    public static int fib(int n) {
+        if (n <= 1) return n;
+        return fib(n - 1) + fib(n - 2);
+    }
+}
+```
+
+**97. Write a Java Program to find the factorial of a given number:**
+
+```java
+public class Factorial {
+    public static void main(String[] args) {
+        int number = 5;
+        System.out.println(factorial(number));
+    }
+
+    public static int factorial(int n) {
+        if (n == 0) return 1;
+        return n * factorial(n - 1);
+    }
+}
+```
+
+**98. Does Java work as "pass by value" or "pass by reference" phenomenon?**
+
+Java uses pass-by-value. When an object is passed as a parameter, the reference to the object is passed by value, meaning the method gets a copy of the reference, not the actual object.
+
+**99. What is the difference between System.out, System.err, and System.in?**
+
+- **System.out:** Standard output stream, typically used to display output on the console.
+- **System.err:** Standard error stream, used to output error messages or logs.
+- **System.in:** Standard input stream, used to read input from the console.
+
+**100. What is the purpose of generics?**
+
+Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods, providing type safety by allowing compile-time type checking and eliminating the need for typecasting.
+
+Sure, here are the answers to your questions:
+
+**101. In what situations is the "super" keyword employed?**
+
+The `super` keyword is used in Java to refer to the immediate parent class object. It is used to:
+- Call the parent class constructor.
+- Access parent class methods that are overridden in the child class.
+- Access parent class variables when they are hidden by the child class.
+
+**102. How to write multiple catch statements under a single try block?**
+
+Multiple `catch` blocks can be written to handle different types of exceptions from a single `try` block:
+```java
+try {
+    // code that might throw exceptions
+} catch (IOException e) {
+    // handle IOException
+} catch (SQLException e) {
+    // handle SQLException
+} catch (Exception e) {
+    // handle any other Exception
+}
+```
+
+**103. What is casting?**
+
+Casting in Java is the process of converting a variable from one type to another. It is required when a variable of one type needs to be treated as another type. Casting can be either implicit or explicit.
+
+**104. What is implicit casting?**
+
+Implicit casting, also known as automatic or widening casting, is the conversion of a smaller data type to a larger data type without explicit instruction. For example, converting an `int` to a `long` is done automatically by the Java compiler.
+
+**105. What is explicit casting?**
+
+Explicit casting, also known as narrowing casting, requires manual conversion of a larger data type to a smaller data type. This must be done explicitly by the programmer using a cast operator. For example, converting a `double` to an `int` requires explicit casting.
+
+**106. What is an enum?**
+
+An `enum` (short for enumeration) is a special Java type used to define collections of constants. An enum is used when we know all possible values at compile time, such as days of the week, months, directions, etc.
+
+**107. Can you give examples of different utility methods in the String class?**
+
+Some utility methods in the `String` class include:
+
+- `length()`: Returns the length of the string.
+- `charAt(int index)`: Returns the character at the specified index.
+- `substring(int beginIndex, int endIndex)`: Returns a substring.
+- `replace(char oldChar, char newChar)`: Replaces occurrences of a character.
+- `toLowerCase()`: Converts the string to lower case.
+- `toUpperCase()`: Converts the string to upper case.
+
+**108. In which scenario is code in finally not executed?**
+
+Code in the `finally` block is not executed if the JVM exits during the `try` or `catch` block execution, such as when `System.exit()` is called, or if the thread executing the `try` block is interrupted or killed.
+
+**109. How do you create a custom exception?**
+
+A custom exception is created by extending the `Exception` class (or another subclass of `Throwable`):
+```java
+public class MyCustomException extends Exception {
+    public MyCustomException(String message) {
+        super(message);
+    }
+}
+```
+Then it can be thrown using `throw new MyCustomException("error message");`.
+
+**110. Is try without catch allowed?**
+
+Yes, a `try` block can be used without a `catch` block if it is followed by a `finally` block:
+```java
+try {
+    // code that might throw an exception
+} finally {
+    // cleanup code that will always run
+}
+```

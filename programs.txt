@@ -1,0 +1,47 @@
+package com.imamsab;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+public class RemoveDuplicateArray {
+
+	public static void main(String[] args) {
+
+		Integer arr[]= {1,2,3,45,6,7,8,1,2,3,4,6};
+		
+		//approch one
+		HashSet<Integer> set=new HashSet<>(Arrays.asList(arr));
+		
+	             Integer[] array = set.toArray(new Integer[0]);
+	             String string = Arrays.toString(array);
+	             System.out.println(string);
+	             
+	             
+	             
+	             //approch 2
+	             
+	             LinkedHashSet<Integer> array1=new LinkedHashSet<Integer>(Arrays.asList(arr));
+	             
+	             
+	             
+	                   Integer[] array2 = array1.toArray(new Integer[0]);
+	                   String string2 = Arrays.toString(array2);
+	                   System.out.println(string2);
+	                   
+	                   
+	                   //approch 3
+	                   
+	                   Arrays.stream(arr).distinct().forEach(e->System.out.println(e));
+	                   
+	                   //approch 4
+	                   
+	                   Integer[] array3 = Arrays.stream(arr).distinct().toArray(Integer[]::new);
+	                   
+	                   String string3 = Arrays.toString(array3);
+	                   
+	                   System.out.println(string3);
+	             
+	}
+
+}
